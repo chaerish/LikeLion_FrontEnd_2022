@@ -103,18 +103,21 @@ footer {
 }
 
 .left-box {
-    width: 35%;
+    width: 200px;
     float: left;
     box-sizing: border-box;
     overflow: hidden;
     padding: 25px;
+    margin-left:-20px;
 }
 
 .right-box {
-    width: 65%;
+    width: 420px;
     float: right;
     box-sizing: border-box;
     overflow: hidden;
+    border-left: 1px solid black;
+    padding-left:15px;
 }
 
 .row {
@@ -134,9 +137,9 @@ footer {
   height: 500px;
 }
 
-.v-line {
+/* .v-line {
     border-left: 2px solid black;
  height:1050px;
  left: 43%;
  position: absolute;
-}
+} */
