@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 
 city = "Seoul"
-apikey = "1cc9fa88d4eb42625ca73a69700dd71e"
+apikey = "apikey"
 lang = "kr"
 api = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apikey}&lang={lang}&units=metric" # ? 앞쪽은 공통내용
 result = requests.get(api)
