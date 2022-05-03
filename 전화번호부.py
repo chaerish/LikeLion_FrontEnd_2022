@@ -2,7 +2,7 @@ total_list=[]
 
 while True:
     print("\n------------멋쟁이 사자처럼 전화번호부------------")
-    print("------1) 추가 2) 조회 3) 수정 4)삭제 q) 종료------")
+    print("------1) 추가 2) 조회 3) 수정 4)삭제 5)메일 전송  q) 종료------")
     print("-------------------------------------------------\n")
 
     menu = input("원하시는 메뉴를 입력해주세요 : ")
@@ -26,9 +26,9 @@ while True:
         for i in total_list:
             if i["이름"] == namefix:
                 orign, fix = input("수정을 원하는 항목과 내용을 입력해주세요 : ").split()
-                if orign == "번호":
+                if (orign == "번호"):
                     i["번호"] = fix
-                elif orign == "메일":
+                elif (orign == "메일"):
                     i["메일"] = fix
                 else:
                     print(" ")
@@ -42,6 +42,12 @@ while True:
                 del i["메일"] 
             else:
                 print(" ")
+
+    if menu =="5":
+        namemail = input("메일 전송을 원하는 사람의 이름을 입력해주세요 : ")
+        for i in total_list:
+            if i["이름"] == namemail:
+                
                 
     if menu == "q":
         break
