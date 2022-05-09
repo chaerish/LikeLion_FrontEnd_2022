@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    font-size: 18px;
+}
+
+button {
+    font-size: 18px;
+    padding: 7px;
+    margin: 5px;
+}
+
+#computer {
+    width: 170px;
+    height: 280px;
+    background: url('./main.png') 0 0;
+    display: inline-block;
+}
+
+#init {
+    display: none;
+}
