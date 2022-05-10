@@ -1,0 +1,49 @@
+body {
+    text-align: center;
+    background-image: url(imgs/classroom.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#logo{
+    margin-top: 10%;
+}
+.gameBoard{
+    margin-bottom: 20%;
+}
+
+#ment{
+    margin-top: 5%;
+}
+
+#myPoint{
+    color: white;
+    background-color: black;
+    margin-bottom: 7%;
+}
+
+#comPoint{
+    color: white;
+    background-color: black;
+    margin-bottom: 7%;
+}
+
+.me{
+    float: left;
+    margin-left: 30%;
+    padding: 2%;
+}
+
+.computer {
+    float: right;
+    margin-right: 30%;
+    padding: 2%;
+}
+
+#game{
+    padding-bottom: 5%;
+}
+
+#pickment{
+    margin-top: 20%;
+}

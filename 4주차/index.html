@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가위바위보 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class = "main">
+        <h1 id = "logo">가위 바위 보</h1>
+        <h3 id="ment">Good Luck!</h3>
+        <div class = "me">
+            <div id = "myPoint">YOU : 0</div>
+            <img id = "myChoice" src="imgs/rock.png" width="200" height="200">
+        </div>
+        <div class = "computer">
+            <div id = "comPoint">COMPUTER : 0</div>
+            <img id = "comChoice" src="imgs/scissors.png" width="200" height="200">
+        </div>
+    </div>
+
+    <div class = "choice">
+        <h3 id = "pickment">What's your pick?</h3>
+        <div id = "play">
+            <button id='btnPaper'><img src='imgs/bo.png' width="40" height="40"></button>
+            <button id='btnRock'><img src='imgs/rock.png'width="40" height="40"></button>
+            <button id='btnScissor'><img src='imgs/scissors.png'width="40" height="40"></button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var myPoint = 0; //나의 이긴 횟수
+        var comPoint = 0;//컴퓨터가 이긴 횟수
+
+        var user = 0;   //0:가위, 1:바위, 2:보 로 가정
+        var computer = 0;
+
+        //random값으로 0,1,2를 받고 각각 가위, 바위, 보 이미지로 변경
+        function comRandom(){
+            computer = Math.floor(Math.random() * 3);
+            if (computer == 0){
+                $('#comChoice').attr("src", "imgs/scissors.png");
+            }
+            else if(computer == 1){
+                $('#comChoice').attr("src", "imgs/rock.png");
+            }
+            else if(computer == 2){
+                $('#comChoice').attr("src", "imgs/bo.png");
+            }
+        }
+        //가위바위보 연산
+         function startGame(){
+            if (user == 0 && computer == 2 || user == 1 && computer == 0 || user == 2 && computer == 1){
+                myPoint += 1;
+                $('#myPoint').text('You : ' + myPoint);
+                $('#ment').text('WIN!!!');
+            }
+            else if (user == computer){
+                $('#ment').text('DRAW!');
+            }
+            else {
+                comPoint += 1;
+                $('#comPoint').text('Computer : ' + comPoint);
+                $('#ment').text('LOSE..');
+            }
+        }
+
+        //사용자가 각 가위바위보 버튼을 눌렀을 때
+        $('#btnScissor').click(function(){
+            $('#myChoice').attr('src','imgs/scissors.png');
+            user = 0;
+            comRandom();
+            startGame();
+        });
+        $('#btnRock').click(function(){
+            $('#myChoice').attr('src','imgs/rock.png');
+            user = 1;
+            comRandom();
+            startGame();
+        });
+        $('#btnPaper').click(function(){
+            $('#myChoice').attr('src','imgs/bo.png');
+            user = 2;
+            comRandom();
+            startGame();
+        });
+    </script>
+
+</body>
+</html>
