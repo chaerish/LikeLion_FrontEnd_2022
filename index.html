@@ -10,17 +10,17 @@
     <h1>가위 바위 보!</h1>
     <h2 id="h2">Good luck!</h2>
     <div id="me">
-        <img id="my-hand" src="가위.png" alt="">
+        <img id="my-hand" src="sissor.png" alt="">
         <h3 id="my-score">you : 0</h3>
     </div>
     <div id="com">
-        <img id="com-hand" src="바위.png" alt="">
+        <img id="com-hand" src="rock.png" alt="">
         <h3 id="com-score">com : 0</h3>
     </div>
     <div id="button">
-        <img id="sissor" src="가위.png" alt="" >
-        <img id="rock" src="바위.png" alt="">
-        <img id="paper" src="보.png" alt="">
+        <img id="sissor" src="sissor.png" alt="" >
+        <img id="rock" src="rock.png" alt="">
+        <img id="paper" src="paper.png" alt="">
     
     </div>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -31,32 +31,32 @@
         var com_winCnt = 0
         $('#sissor').click(function(){
             me = 1
-            $('#my-hand').attr('src',"가위.png")
+            $('#my-hand').attr('src',"sissor.png")
             com = Math.floor(Math.random()*3+1) 
             trans();
             })
         $('#rock').click(function(){
             me = 2
-            $('#my-hand').attr('src',"바위.png")
+            $('#my-hand').attr('src',"rock.png")
             com = Math.floor(Math.random()*3+1)
             trans();
         })
         $('#paper').click(function(){
             me = 3
-            $('#my-hand').attr('src',"보.png")
+            $('#my-hand').attr('src',"paper.png")
             com = Math.floor(Math.random()*3+1)
             trans();
         })//각 이미지 클릭했을때 me,com값 바꿔주고 내 이미지도 바꿔주기
 
         var trans = function(){
             if (com == 1){
-                $('#com-hand').attr('src','가위.png')
+                $('#com-hand').attr('src','sissor.png')
             }
             if (com == 2){
-                    $('#com-hand').attr('src','바위.png')
+                    $('#com-hand').attr('src','rock.png')
                 }
             if (com == 3) {
-                    $('#com-hand').attr('src','보.png')
+                    $('#com-hand').attr('src','paper.png')
                 } //com의 이미지 바꿔주기
 
         
