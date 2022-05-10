@@ -15,6 +15,10 @@ body {
     margin-bottom: 7%;
 }
 
+#result{
+    margin-top: auto;
+}
+
 #comPoint{
     color: white;
     background-color: black;
