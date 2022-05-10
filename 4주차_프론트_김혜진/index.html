@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가위 바위 보!</title>
+    <style>
+        #main {
+            text-align: center;
+            font-weight: bold;
+            font-size: 50px;
+        }
+        #result {
+            text-align: center;
+            font-style: italic;
+        }
+        #me {
+            position: relative;
+            width: 80%;
+            top: 30%;
+            right: 5%;
+            background-color: darkslategrey;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+        #comp {
+            position: relative;
+            width: 80%;
+            top: 30%;
+            left: 5%;
+            background-color: darkslategrey;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+        #sum_my {
+            position: relative;
+            font-size: 25px;
+            color: aliceblue;
+            background-color: rgb(24, 36, 6);
+            width: 100%;
+            height: 30%;
+            right: 5%;;
+        }
+
+        #sum_comp {
+            color: aliceblue;
+            font-size: 25px;
+            position: relative;
+            background-color: rgb(24, 36, 6);
+            width: 100%;
+            height:30%;
+            left: 5%;
+        }
+        #p_comp {
+            color: aliceblue;
+            text-align: center;
+        }
+        #p_my {
+            color: aliceblue;
+            text-align: center;
+        }
+        #choose {
+            position: relative;
+            color: darkred;
+            text-align: center;
+            top: 50%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+        }
+        #rock {
+            width: 50%;
+            height: 15%;
+        }
+        #scissors {
+            width: 50%;
+            height: 15%;
+        }
+        #paper {
+            width: 50%;
+            height: 15%;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main">가위 바위 보!</h1>
+    <h2 id="result">Good Luck!</h2>
+    <div class="fight">
+        <table align="center" width="50%">
+            <th align="center"><div id="sum_my"><h4 id="p_my">You: 0</h4></div></th>
+            <th align="center"><div id="sum_comp"><h4 id="p_comp">Computer: 0</h4></div></th>
+            <tr align="center">
+                <td><img id="me" src="rock.png" alt="rock_my"></td>
+                <td><img id="comp" src="rock.png" alt="rock_comp"></td>
+            </tr>
+        </table>
+    </div>
+    <h2 id="choose">Choose One !</h2>
+    <table id="choice" align="center" width="30%">
+        <th align="right"><img id="rock"  src="rock.png"></th>
+        <th><img id="scissors" src="scissors.png"></th>
+        <th align="left"><img id="paper" src="paper.png"></th>
+    </table>
+    <script>
+        var choice;                                                     //사용자의 선택
+        var compchoice;                                                 //컴퓨터의 선택
+        var me = 0;                                                     //사용자의 누적 승 0으로 초기화
+        var comp = 0;                                                   //컴퓨터의 누적 승 0으로 초기화
+      
+        var rock = document.getElementById("rock");                     // rock, scissors, paper 변수에 각각 사용자가 선택할 그림의 아이디 연결
+        var scissors = document.getElementById("scissors");
+        var paper = document.getElementById("paper");
+
+
+        rock.addEventListener("click", function(){                      //사용자가 주먹을 클릭했을때 발생할 동작
+            compchoice = Math.floor(Math.random()*3);                   //컴퓨터의 선택에 1~3 사이의 랜덤한 값을 준다.(0은 주먹, 1은 가위, 2는 보)
+            document.getElementById("me").src="rock.png";               //사용자가 낸 그림 나타내기
+        if(compchoice == 0) {                                           //컴퓨터도 주먹을 낸 경우
+                result.innerText = "draw";                              //result 아이디의 내용을 draw로 바꿔 나타낸다.
+                document.getElementById("comp").src="rock.png";         //컴퓨터가 낸 그림 나타내기
+            }else if(compchoice == 1) {                                 //컴퓨터가 가위를 낸 경우
+                result.innerText = "win";                               //result 아이디의 내용을 win으로 바꿔 나타낸다.
+                document.getElementById("comp").src="scissors.png";     //컴퓨터가 낸 그림 나타내기
+            }else {                                                     //컴퓨터가 보를 낸 경우
+                result.innerText = "lose";                              //result 아이디의 내용을 lose로 바꿔 나타낸다.
+                document.getElementById("comp").src="paper.png";        //컴퓨터가 낸 그림 나타내기
+            }
+            if(result.innerText === "win") {                            //result 아이디의 내용이 win인 경우
+                me++;                                                   //사용자의 누적 승 증가
+            }
+            else if(result.innerText ==="lose") {                       //result 아이디의 내용이 lose인 경우
+                comp++;                                                 //컴퓨터의 누적 승 증가
+            }
+            sum_my.innerText = "You : " + me;                           //사용자의 누적 승 나타내기
+            sum_comp.innerText = "Computer :" + comp;                   //컴퓨터의 누적 승 나타내기
+        });
+
+        scissors.addEventListener("click", function(){                  //사용자가 가위를 클릭했을때 발생할 동작
+            compchoice = Math.floor(Math.random()*3);                   //주먹을 냈을 때와 승패의 경우만 다르고 동일하다.
+            document.getElementById("me").src="scissors.png";
+            if(compchoice == 0) {
+                result.innerText = "lose";
+                document.getElementById("comp").src="rock.png";
+            }else if(compchoice == 1) {
+                result.innerText = "draw";
+                document.getElementById("comp").src="scissors.png";
+            }else {
+                result.innerText = "win";
+                document.getElementById("comp").src="paper.png";
+            }
+            if(result.innerText === "win") {
+                me++;           
+            }
+            else if(result.innerText ==="lose") {
+                comp++;   
+            }
+            sum_my.innerText = "You : " + me;
+            sum_comp.innerText = "Computer :" + comp;
+        });
+
+        paper.addEventListener("click", function(){                     //사용자가 보를 클릭했을때 발생할 동작
+            compchoice = Math.floor(Math.random()*3);                   //주먹을 냈을 때와 승패의 경우만 다르고 동일하다.
+            document.getElementById("me").src="paper.png";
+            if(compchoice == 0) {
+                result.innerText = "win";
+                document.getElementById("comp").src="rock.png";
+            }else if(compchoice == 1) {
+                result.innerText = "lose";
+                document.getElementById("comp").src="scissors.png";
+            }else {
+                result.innerText = "draw";
+                document.getElementById("comp").src="paper.png";
+            }
+            if(result.innerText === "win") {
+                me++;           
+            }
+            else if(result.innerText ==="lose") {
+                comp++;   
+            }
+            sum_my.innerText = "You : " + me;
+            sum_comp.innerText = "Computer :" + comp;
+        });          
+
+    </script>
+</body>
+</html>
