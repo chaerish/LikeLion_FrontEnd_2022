@@ -1,0 +1,27 @@
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
+#button {
+    text-align: center;
+
+}
+#sissor {
+    width: 100px;
+    height: 100px;
+}
+#rock {
+    width: 100px;
+    height: 100px;
+}
+#paper {
+    width: 100px;
+    height: 100px;
+}
