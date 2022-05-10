@@ -67,7 +67,7 @@
             else if (comNum == 1) { //컴퓨터 바위
                 document.getElementById("computer").src = "rock.png";
                 document.getElementById("result").innerHTML = "졌다!";
-                comwin++; //컴퓨터가 이겼으므로 컴퓨터 이긴 수 증가 후 출력
+                comwin = comwin + 1; //컴퓨터가 이겼으므로 컴퓨터 이긴 수 증가 후 출력
                 document.getElementById("comwin").innerHTML = "Computer :" + comwin;
             }
             else if (comNum == 2) { //컴퓨터 보
@@ -85,7 +85,7 @@
             if (comNum == 0) { //컴퓨터 가위
                 document.getElementById("computer").src = "scissors.png";
                 document.getElementById("result").innerHTML = "이겼다!";
-                userwin++;
+                userwin = userwin + 1;
                 document.getElementById("userwin").innerHTML = "user :" + userwin;
             }
             else if (comNum == 1) { //컴퓨터 바위
@@ -95,7 +95,7 @@
             else if (comNum == 2) { //컴퓨터 보
                 document.getElementById("computer").src = "paper.png";
                 document.getElementById("result").innerHTML = "졌다!";
-                comwin = comwin ++;
+                comwin = comwin + 1;
                 document.getElementById("comwin").innerHTML = "Computer :" + comwin;
             }
         }
