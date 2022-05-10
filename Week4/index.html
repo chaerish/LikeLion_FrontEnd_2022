@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+    
+    <style>
+
+    body {
+        text-align: center;
+        font-size: 18px;
+    }
+
+
+    button {
+        font-size: 18px;
+        padding: 7px;
+        margin: 5px;
+    }
+
+    #computer {
+        width: 170px;
+        height: 280px;
+        background: url('./RockScissorsPaper.png') 0 0;
+        display: inline-block;
+    }
+
+    #init {
+        display: none;
+    }
+    </style>
+
+</head>
+<body>
+    <h1>가위 바위 보 !</h1>
+    <div id="computer"></div>
+    <div>
+        <button id="rock" class="btn">가위</button>
+        <button id="scissor" class="btn">바위</button>
+        <button id="paper" class="btn">보</button>
+    </div>
+    <br>
+    <div id="result"></div>
+    <br>
+    <button id="init">Reset</button>
+    <script>
+        let imageCoordinate = '0';
+const dictionary = { // main.png에서 가위바위보 각각의 위치를 딕셔너리에 저장
+    바위: '0',
+    가위: '-200px',
+    보: '-390px'
+};
+
+function computerPick(imageCoordinate) {
+    return Object.entries(dictionary).find(function(v) {
+        return v[1] === imageCoordinate;
+    })[0];
+}
+
+let interval;
+
+function intervalMaker() {
+
+    interval = setInterval(function() {
+    // setInterval() 0.13초마다 메서드로 가위바위보 번갈아가며 출력
+        if (imageCoordinate === dictionary.바위) {
+            imageCoordinate = dictionary.가위
+        } else if (imageCoordinate === dictionary.가위) {
+            imageCoordinate = dictionary.보;
+        } else {
+            imageCoordinate = dictionary.바위;
+        }
+        document.querySelector("#computer").style.background =
+            'url(./RockScissorsPaper.png) ' + imageCoordinate + ' 0';
+    }, 130); 
+}
+
+intervalMaker();
+
+const score = {
+    가위: 1,
+    바위: 0,
+    보: -1
+};
+
+const result = document.getElementById('result');
+const init = document.getElementById('init');
+let playTime = 0;
+let winNumber = 0;
+let loseNumber = 0;
+let drawNumber = 0;
+
+document.querySelectorAll('.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        clearInterval(interval);
+        intervalMaker();
+        playTime++;
+        init.style.display = 'inline-block';
+        const myPick = this.textContent;
+        const myScore = score[myPick];
+        const computerScore = score[computerPick(imageCoordinate)];
+        const scoreGap = myScore - computerScore;
+        if (scoreGap === 0) {
+            alert('Draw!');
+            drawNumber++;
+        } else if ([-1, 2].includes(scoreGap)) {
+            alert('You win!');
+            winNumber++;
+        } else {
+            alert('You lose!');
+            loseNumber++;
+        }
+        result.innerHTML = "Play : " + playTime + "<br>" + 
+                           "You : " + winNumber + "<br>" + 
+                           "Computer : " + loseNumber + "<br>" +
+                           "Draw : " + drawNumber;
+                        
+    });
+});
+
+function initRecord() {
+    playTime = 0;
+    winNumber = 0;
+    loseNumber = 0;
+    drawNumber = 0;
+    result.innerHTML = "Play : " + 0 + "<br>" + 
+                       "You : " + 0 + "<br>" + 
+                       "Computer : " + 0 + "<br>" +
+                       "Draw : " + 0;
+}
+
+init.addEventListener('click', initRecord);
+
+// 가위: 1, 바위: 0, 보: -1
+//
+// 나|컴퓨터   가위     바위     보
+//      가위   1 1     1 0     1 -1
+//      바위   0 1     0 0     0 -1
+//        보  -1 1    -1 0    -1 -1
+    </script>
+</body>
+</html>
