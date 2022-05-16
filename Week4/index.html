@@ -63,7 +63,7 @@ let interval;
 function intervalMaker() {
 
     interval = setInterval(function() {
-    // setInterval() 0.13초마다 메서드로 가위바위보 번갈아가며 출력
+    // setInterval() 0.1초마다 메서드로 가위바위보 번갈아가며 출력
         if (imageCoordinate === dictionary.바위) {
             imageCoordinate = dictionary.가위
         } else if (imageCoordinate === dictionary.가위) {
@@ -73,7 +73,7 @@ function intervalMaker() {
         }
         document.querySelector("#computer").style.background =
             'url(./RockScissorsPaper.png) ' + imageCoordinate + ' 0';
-    }, 130); 
+    }, 100); 
 }
 
 intervalMaker();
