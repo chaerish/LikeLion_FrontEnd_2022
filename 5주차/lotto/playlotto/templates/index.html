@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로또 번호 추출기</title>
+</head>
+<body>
+    <h1>로또 번호 추출기</h1>
+    <p>로또 번호를 받아보세요!</p>
+    <p>몇 개의 게임을 뽑으시겠습니까?</p>
+
+    <form action="{% url 'result' %}" method="GET">
+        <input type="text" name="count">
+        <button type="submit">로또 번호 추출하기</button>
+    </form>
+</body>
+</html>
