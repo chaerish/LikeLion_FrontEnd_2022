@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>LOTTO</title>
+
+    </head>
+    <body>
+        <h1>로또 번호 추첨기</h1>
+        <h3>로또 번호를 받아보세요!</h3>
+        <h3>몇 개의 게임을 뽑으시겠습니까?</h3>
+        <form action="/lotto/result" method="get">
+            {% csrf_token %} <!--입력받은 데이터를 결과 페이지에서 처리-->
+            <input type="number" name="num_lotto">
+            <br>
+            <button type="submit">로또 번호 추출하기</button>
+        </form>
+
+        
+    </body>
+
+</html>
