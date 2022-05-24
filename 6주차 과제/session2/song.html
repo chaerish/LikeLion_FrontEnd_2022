@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .deadleaf{
+            width:0px;
+            height:5px;
+            background-color:rgb(92,100,254);
+        }
+        .lyrics{
+            width:250px;
+            height:150px;
+            overflow-y:scroll;
+            background-color: wheat;
+        }
+
+    </style>
+    <div class="deadleaf"></div>
+    <div class="lyrics">
+        <p> 떨어져 날리는 저기 낙엽처럼 힘없이 스러져만 가 내 사랑이 니맘이 멀어져만 가 널 잡을 수 없어 더 더 더 잡을 수 없어 난더 붙들 수 없어 yeah 저기 저 위태로워 보이는 낙엽은 우리를 보는 것 같아서 손이 닿으면 단숨에라도 바스라질 것만 같아서 그저 바라만 봤지 가을의 바람과 같이어느새 차가워진 말투와 표정관계는 시들어만 가는 게 보여가을 하늘처럼 공허한 사이예전과는 다른 모호한 차이오늘따라 훨씬 더 조용한 밤가지 위에 달린 낙엽 한 장 부서지네 끝이란 게 보여말라가는 고엽 초연해진 마음속의 고요 </p>
+    </div>
+    <script> //scrollHeight=ScrollTop+clientHeight
+        let bar=document.querySelector('.deadleaf');
+        let lyric=document.addEventListener("scroll",function(){
+            let scrollTop=lyric.scrollTop;
+            let scrollHeight=lyric.scrollHeight-lyric.clientHeight; 
+            let per=scrollTop/scrollHeight;
+            bar.style.width=`${per*250}px`;
+        });
+    </script>
+</body>
+</html>
